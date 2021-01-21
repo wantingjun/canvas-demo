@@ -7,28 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="canvas"></div>
+    <canvas id="canvas" width='100' height='100'></canvas>
     <script>
-        canvas.onclick = (e)=>{
-            console.log(e.clientX);
-            console.log(e.clientY);
-            let div = document.createElement('div')
-            div.style.position='absolute'
-            div.style.left=e.clientX + 'px';
-            div.style.top=e.clientY + 'px';
-            // div.style.border='1px solid red'
-            div.style.width='6px'
-            div.style.height='6px'
-            div.style.marginLeft='-3px' //让鼠标在正方形中间
-            div.style.marginTop='-3px'
-            div.style.borderRadius='50%'
-            div.style.background='black'
+      //canvas怎么画线
+      let canvas = document.getElementById("canvas");
+      canvas.width=document.documentElement.clientWidth;
+      canvas.height=document.documentElement.clientHeight;
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = "blue";
 
-            canvas.appendChild(div)
-
-
-
+        let painting=false;
+        canvas.onmousedown=()=>{
+            painting=true;
         }
+        canvas.onmousemove=(e)=>{
+            if(painting === true){
+                ctx.fillRect (e.clientX -5, e.clientY-5, 10, 10);       
+            }
+            else{
+                console.log('nothing')
+            }
+            
+        }
+        canvas.onmouseup=()=>{
+            painting=false;
+        }
+
     </script>
 </body>
 </html>
