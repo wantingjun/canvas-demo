@@ -1,5 +1,6 @@
-## 一个canvas画板 
+## 一个canvas画板 📝
 * 一个用于练习的canvas画板
+* 🔗[预览地址](https://wantingjun.github.io/canvas-demo/)
 ### 用到的API
 1. 创建canvas
 ```
